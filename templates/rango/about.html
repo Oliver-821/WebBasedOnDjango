@@ -1,0 +1,43 @@
+{% extends 'rango/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    About Rango
+{% endblock %}
+
+{% block body_block %}
+<!--h1>Rango says...</h1>
+<div>
+    here is the about page.<br />
+    <strong>This tutorial has been put together by Ziyang Liu</strong><br/>
+    <p>Visits: {{ visits }}</p>
+
+</div>
+<div>
+<img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" /> <!-- New line -->
+<!--img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a Cat" /-->
+<div class="container">
+    <div class="col-md-6">
+        <p>
+            As the number of sites for learning a language increases, it becomes easier to organize these course names and 
+site addresses together.On this basis, if the site to add the search language function, it is more convenient to manage the site address.In addition, the site's login and registration functions identify users and enable specific features to be 
+presented to specific users.Finally, the site is able to perform permission checks on users who are not logged in. Without permission, users 
+cannot perform certain operations
+        </p>
+        <p>Visits: {{ visits }}</p>
+    </div>
+    <div class="col-md-6">
+        <div class="slider">
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    <li><img src="{% static 'images/OIP.jfif' %}" class="img-responsive" alt=""/></li>
+                    <li><img src="{% static 'images/R.jfif' %}" class="img-responsive" alt=""/></li>
+                    <li><img src="{% static 'images/T.jfif' %}" class="img-responsive" alt=""/></li>      
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

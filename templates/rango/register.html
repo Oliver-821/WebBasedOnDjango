@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<title>Sign in</title>
+		<link rel="stylesheet" href="{% static 'css/register.css' %}">
+        <link rel="stylesheet" href="{% static 'css/iconfont.css' %}">
+	</head>
+    <body>
+        {% if registered %}
+        Rango says: <strong>thank you for registering!</strong>
+        <a href="{% url 'rango:index' %}">Return to the homepage.</a><br />
+        {% else %}
+        Rango says: <strong>register here!</strong><br />
+        <div id="login-box">
+            <h1>Register</h1>
+            <div class="input-box">
+                <form id="login_form" method="post" action="{% url 'rango:register' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <font color="white">
+                    {{ user_form.as_p }}
+                    {{ profile_form.as_p }}
+                    <button>Register</button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </body>
+</html>

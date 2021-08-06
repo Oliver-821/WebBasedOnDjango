@@ -1,0 +1,142 @@
+{% extends 'rango/base.html' %}
+{% load static %}
+{% load rango_template_tags %}
+
+{% block title_block %}
+Homepage
+{% endblock %}
+
+{% block body_block %}
+<!-- <h1>Rango says...</h1>
+         <div>
+            {% if user.is_authenticated %}
+                howdy {{ user.username }}!
+            {% else %}
+                hey there partner!
+            {% endif %}
+            <br />
+            <strong>{{ boldmessage }}</strong><br />
+        </div> -->
+
+<style>
+    .jumbotron img {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+
+<div class="container">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            </p>
+            <div class="jumbotron">
+                <h2> {% if user.is_authenticated %}
+                    Hi {{ user.username }}!
+                    {% else %}
+                    Hi visitor!
+                    {% endif %}
+                    <br /></h1>
+                    <div class="slider">
+                        <div class="callbacks_container">
+                            <ul class="rslides" id="slider">
+                                <li><img src="{% static 'images/OIP.jfif' %}" class="img-responsive" alt=""/></li>
+                                <li><img src="{% static 'images/R.jfif' %}" class="img-responsive" alt=""/></li>
+                                <li><img src="{% static 'images/T.jfif' %}" class="img-responsive" alt=""/></li>      
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-lg-4">
+                    <h2>Most Liked Categories</h2>
+                    {% if categories %}
+                    <div class="nav1">
+                        <ul>
+                            {% for category in categories %}
+                            <li><a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <strong>There are no categories present.</strong>
+                        {% endif %}
+                    </div>
+                </div>
+                <!--/.col-xs-6.col-lg-4-->
+                <div class="col-xs-6 col-lg-4">
+                    <h2>Most Viewed Pages</h2>
+                    {% if pages %}
+                    <div class="nav1">
+                        <ul>
+                            {% for page in pages %}
+                            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <strong>There are no pages present.</strong>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+                <!--/.col-xs-6.col-lg-4-->
+            </div>
+            <!--/row-->
+        </div>
+        <!--/.col-xs-12.col-sm-9-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+            <!-- <div class="list-group">
+                <a href="#" class="list-group-item active">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+            </div> -->
+            <div class="w-75 ml-3">
+                <input type="search"
+                id="search-input"
+                class="form-control ds-input"
+                placeholder="Search..." />
+                </div>
+                
+            <!-- <div class="list-group" id="categories-listing">
+                {% if categories %}
+                {% for c in categories %}
+                <a href="{% url 'rango:show_category' c.slug %}" class="list-group-item">{{ c.name }}</a>
+                {% endfor %}
+
+                {% endif %} 
+            </div> -->
+            <div class="sidebar-sticky" id="categories-listing">
+                {% block sidebar_block %}
+                {% get_category_list category %}
+                {% endblock %}
+                </div>
+                
+
+        </div>
+        <!--/.sidebar-offcanvas-->
+    </div>
+    <!--/row-->
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2021 Company, Inc.</p>
+    </footer>
+
+</div>
+<!--/.container-->
+
+
+{% endblock %}

@@ -1,0 +1,105 @@
+.nav1 {
+    list-style: none;
+     *zoom: 1;
+     
+     border-bottom:1px solid #ccc;
+}
+.nav1:before,
+.nav1:after {
+    content: " "; 
+    display: table; 
+}
+.nav1:after {
+    clear: both;
+}
+.nav1 ul {
+    list-style: none;
+	width: 13em;
+	border-bottom:5px solid #fd926d;
+	z-index:888;
+}
+.nav1 li a {
+	display: block;
+	padding: 10px 15px;
+	color: #555;
+	font-size: 0.85em;
+	font-weight: 600;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	text-decoration: none;
+}
+.nav1 li a:hover {
+	background:#fd926d;
+	color:#fff;
+}
+.nav1 li {
+    position: relative;
+}
+.nav1 > li > a.parent{
+	background: url(../images/arrow.png) no-repeat 15px 16px;
+	padding: 10px 10px 10px 30px;
+}
+.nav1 > li > a.parent:hover{
+	background: url(../images/arrow_h.png) no-repeat 15px 16px #fd926d;
+	padding: 10px 10px 10px 30px;
+}
+.nav1 > li {
+    float:left;
+}
+.nav1 > li.hover > ul {
+    left:-1px;
+    top:40px;
+}
+.nav1 li li.hover ul {
+    left: 100%;
+   -webkit-transition: background .2s linear;
+	-moz-transition: background .2s linear;
+	-ms-transition: background .2s linear;
+	-o-transition:  background .2s linear;
+	transition: background .2s linear;
+}
+.nav1 > li > li > a{
+	font-size: 0.85em;
+	padding: 10px 20px;
+	display: block;
+	color: #555;
+	background: #fff;
+	position: relative;
+	z-index: 9999;
+	font-weight: normal;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	width: 100%;
+	text-decoration: none;
+	margin: 0;
+	text-transform: lowercase;
+}
+.nav1 li li {
+	border-top:none;
+}
+.nav1 li li:hover{
+	border-top:none;
+}
+.nav1 li li a{
+	text-transform: capitalize;
+	font-size:0.85em;
+	border-top: 1px solid #e8ebf1;
+	border-left: 1px solid #e8ebf1;
+	border-right: 1px solid #e8ebf1;
+}
+.nav1 li li a:hover{
+	color:#000;
+}
+.nav1 > li >  ul {
+    position: absolute;
+    left: -9999px;
+    padding: 0;
+    z-index: 9999;
+    background:#fff;
+}
