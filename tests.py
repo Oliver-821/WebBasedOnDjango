@@ -1,8 +1,6 @@
-import os
 from django.test import TestCase
 from rango.models import Category, Page
 from django.urls import reverse
-
 
 
 # Create your tests here.
@@ -57,14 +55,3 @@ class IndexTests(TestCase):
 
         num_categories = len(response.context['categories'])
         self.assertEquals(num_categories, 4)
-
-class CatalogueTests(TestCase):
-    
-    def test_templates_exists(self):
-        self.project_base_dir = os.getcwd()
-        self.templates_dir = os.path.join(self.project_base_dir, 'templates')
-        directory_exists = os.path.isdir(self.templates_dir)
-        self.assertEqual(directory_exists, True)
- 
-        
-   
